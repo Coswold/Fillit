@@ -6,14 +6,15 @@
 #    By: cooswold <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/12 21:23:50 by cooswold          #+#    #+#              #
-#    Updated: 2018/05/12 22:06:39 by cooswold         ###   ########.fr        #
+#    Updated: 2018/05/14 20:36:42 by cooswold         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
 SRC = board_check.c checker.c dimensions.c grow_board.c place.c solve.c \
-	 	board_size.c convert.c main.c remove.c blank_board.c 
+	 	board_size.c convert.c main.c remove.c blank_board.c field_checker.c \
+	   	piece_counter.c ft_putstr.c
 
 CC = gcc
 

@@ -6,34 +6,30 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 18:31:25 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/12 22:00:20 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/14 22:40:56 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**place(int	*piece, char **board)
+char	**place(int *piece, char **board, int rowb, int colb)
 {
 	int i;
-	int rowb;
-	int colb;
 
-	i = 0;
-	rowb = 0;
-	colb = 0;
+	i = 1;
 	board[g_y][g_x] = g_pieces_placed + 65;
-	while (i < 3)
+	while (i < 4)
 	{
-		if (piece[i] >= piece[i + 1])
+		if (piece[i] <= piece[i - 1])
 		{
 			colb++;
-			rowb = 0;
-			board[g_y + colb][g_x] = g_pieces_placed + 65;
+			rowb = piece[i] - piece[0];
+			board[g_y + colb][g_x + rowb] = g_pieces_placed + 65;
 		}
-		if (piece[i] < piece[i + 1])
+		if (piece[i] > piece[i - 1])
 		{
 			rowb++;
-			board[g_y][g_x + rowb] = g_pieces_placed + 65;
+			board[g_y + colb][g_x + rowb] = g_pieces_placed + 65;
 		}
 		i++;
 	}

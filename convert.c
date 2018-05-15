@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/08 15:19:52 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/12 21:20:03 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/14 22:41:59 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int	**move(int **str, int nb)
 		k = 0;
 		while (k < 4)
 		{
-			if (str[i][0] > 0 && str[i][1] > 0 && str[i][2] > 0 && str[i][3] > 0)
+			if (str[i][0] > 0 && str[i][1] > 0 &&
+					str[i][2] > 0 && str[i][3] > 0)
 			{
 				str[i][0] = str[i][0] - 1;
 				str[i][1] = str[i][1] - 1;
@@ -37,16 +38,12 @@ int	**move(int **str, int nb)
 	return (str);
 }
 
-int	**convert(char *str)
+int	**convert(char *str, int i, int k)
 {
-	int i;
 	int j;
-	int k;
 	int l;
 	int **pieces;
 
-	i = 0;
-	k = 0;
 	pieces = (int**)malloc(sizeof(int*) * 26);
 	while (str[i] != '\0')
 	{
@@ -57,14 +54,13 @@ int	**convert(char *str)
 		{
 			if (str[i] == '#')
 			{
-				pieces[k][l] = i % 5;
+				pieces[k][l] = (i - (21 * k)) % 5;
 				l++;
 			}
 			j++;
 			i++;
 		}
 		k++;
-		g_piece_num = k;
 	}
 	return (move(pieces, k));
 }

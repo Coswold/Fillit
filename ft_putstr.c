@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove.c                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/12 19:27:58 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/15 14:52:03 by cooswold         ###   ########.fr       */
+/*   Created: 2018/05/14 20:34:31 by cooswold          #+#    #+#             */
+/*   Updated: 2018/05/14 20:39:12 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**rm_piece(char **board)
+void	ft_putstr(char *str)
 {
 	int i;
-	int j;
-	int count;
 
-	i = -1;
-	count = 0;
-	g_pieces_placed--;
-	while (++i < g_bs)
+	i = 0;
+	while (str[i])
 	{
-		j = -1;
-		while (++j < g_bs)
-		{
-			if (board[i][j] == g_pieces_placed + 65)
-			{
-				board[i][j] = '.';
-				count++;
-				if (count == 1)
-				{
-					g_x = j + 1;
-					g_y = i;
-				}
-			}
-		}
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (board);
 }

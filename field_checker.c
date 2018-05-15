@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   remove.c                                           :+:      :+:    :+:   */
+/*   field_checker.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/12 19:27:58 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/15 14:52:03 by cooswold         ###   ########.fr       */
+/*   Created: 2018/05/14 19:34:01 by cooswold          #+#    #+#             */
+/*   Updated: 2018/05/14 22:45:31 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**rm_piece(char **board)
+int	ft_fieldcheck(char *str)
 {
 	int i;
 	int j;
-	int count;
 
-	i = -1;
-	count = 0;
-	g_pieces_placed--;
-	while (++i < g_bs)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		j = -1;
-		while (++j < g_bs)
+		j = i % 21;
+		if (j == 20)
 		{
-			if (board[i][j] == g_pieces_placed + 65)
-			{
-				board[i][j] = '.';
-				count++;
-				if (count == 1)
-				{
-					g_x = j + 1;
-					g_y = i;
-				}
-			}
+			if ((j == 20) && (str[i] != '\n'))
+				return (1);
 		}
+		else
+		{
+			if ((j % 5 == 4) && (str[i] != '\n'))
+				return (1);
+			if ((j % 5 < 4) && (str[i] != '.' && str[i] != '#'))
+				return (1);
+		}
+		i++;
 	}
-	return (board);
+	if ((i % 21 != 20) && (i % 21 != 0))
+		return (1);
+	return (0);
 }

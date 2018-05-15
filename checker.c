@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/07 20:56:19 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/12 22:57:31 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/14 22:30:18 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int	is_piece(char *str)
 	int j;
 
 	i = 0;
-	count = 0;
-	conn = 0;
 	while (str[i] != '\0')
 	{
+		conn = 0;
+		count = 0;
 		j = 0;
-		while (j < 21)
+		while (j++ < 21 && str[i])
 		{
 			if (str[i] == '#' && str[i + 1] == '#')
 				conn++;
@@ -33,14 +33,10 @@ int	is_piece(char *str)
 				conn++;
 			if (str[i] == '#')
 				count++;
-			j++;
 			i++;
 		}
+		if (conn < 3 || count != 4)
+			return (0);
 	}
-	if (count == 4 && conn > 2)
-		return (1);
-	else
-		return (0);
+	return (1);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 20:13:32 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/12 21:20:28 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/14 17:12:24 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int		height(int *piece)
 	int height;
 
 	i = 0;
-	height = 0;
+	height = 1;
 	while (i < 3)
 	{
-		if (piece[i] == piece[i + 1])
+		if (piece[i] >= piece[i + 1])
 			height++;
 		i++;
 	}

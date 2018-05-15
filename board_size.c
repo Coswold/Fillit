@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/04 19:56:08 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/12 23:03:42 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/14 22:37:37 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 int		ft_sqrt(int nb)
 {
-	   int a;
+	int a;
 
-    a = 1;
-    if (nb < 0)
-        return (0);
-    while (a * a <= nb)
-    {
-        if (a * a == nb)
-            return (a);
-        a++;
-    }
-    return (a);
+	a = 1;
+	if (nb < 0)
+		return (0);
+	while (a * a <= nb)
+	{
+		if (a * a == nb)
+			return (a);
+		a++;
+	}
+	return (a);
 }
 
 char	**board_size(int pieces)
 {
-	int i;
-	char **board;
+	int		i;
+	char	**board;
 
 	i = 0;
 	g_bs = ft_sqrt(pieces * 4);
