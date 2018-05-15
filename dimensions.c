@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 20:13:32 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/14 17:12:24 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/15 15:19:58 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int		width(int *piece)
 	int i;
 	int width;
 
-	i = 0;
-	width = piece[i];
+	i = 1;
+	width = 0;
 	while (i < 3)
 	{
-		if (piece[i] < piece[i + 1])
-			width = piece[i + 1];
+		if (piece[i] > piece[i + 1])
+			width = piece[0] - piece[i + 1];
 		i++;
 	}
 	return (width);

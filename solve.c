@@ -6,7 +6,7 @@
 /*   By: cooswold <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/10 18:11:39 by cooswold          #+#    #+#             */
-/*   Updated: 2018/05/15 14:54:34 by cooswold         ###   ########.fr       */
+/*   Updated: 2018/05/15 15:24:32 by cooswold         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int		solve(char *str)
 			board = place(pieces[g_pieces_placed], board, 0, 0);
 		else
 			board = rm_piece(board);
-		if (g_pieces_placed < 0)	
+		if (g_pieces_placed < 0)
 			board = grow_board(board);
 	}
 	print_board(board);

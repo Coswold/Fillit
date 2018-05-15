@@ -6,7 +6,7 @@
 #    By: cooswold <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/05/12 21:23:50 by cooswold          #+#    #+#              #
-#    Updated: 2018/05/14 20:36:42 by cooswold         ###   ########.fr        #
+#    Updated: 2018/05/15 15:43:46 by cooswold         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,14 @@ SRC = board_check.c checker.c dimensions.c grow_board.c place.c solve.c \
 
 CC = gcc
 
+OBJ = $(SRC:.c=.o)
+
 CFLAGS = -Wall -Wextra -Werror
 REMOVE = /bin/rm -f
 
 $(NAME):
 	$(CC) -o $(NAME) $(CFLAGS) $(SRC)
+	$(CC) -c $(CFLAGS) $(SRC)
 
 all: $(NAME)
 
@@ -33,3 +36,5 @@ fclean: clean
 	$(REMOVE) $(NAME)
 
 re: fclean all
+
+.PHONY : all, re, clean, fclean
